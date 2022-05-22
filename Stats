@@ -1,0 +1,292 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local OnTop = Instance.new("ScreenGui")
+local Users = Instance.new("TextLabel")
+local Main = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local UIListLayout = Instance.new("UIListLayout")
+local Player = Instance.new("TextButton")
+local PlayerStats = Instance.new("TextLabel")
+local View = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local UIListLayout_2 = Instance.new("UIListLayout")
+local Str = Instance.new("TextLabel")
+local UICorner_3 = Instance.new("UICorner")
+local Stam = Instance.new("TextLabel")
+local UICorner_4 = Instance.new("UICorner")
+local Defense = Instance.new("TextLabel")
+local UICorner_5 = Instance.new("UICorner")
+local Weapon = Instance.new("TextLabel")
+local UICorner_6 = Instance.new("UICorner")
+local Glock = Instance.new("TextLabel")
+local UICorner_7 = Instance.new("UICorner")
+local Buso = Instance.new("TextLabel")
+local UICorner_8 = Instance.new("UICorner")
+local DF = Instance.new("TextLabel")
+local UICorner_9 = Instance.new("UICorner")
+local EatenFruit = Instance.new("TextLabel")
+local UICorner_10 = Instance.new("UICorner")
+local Beri = Instance.new("TextLabel")
+local UICorner_11 = Instance.new("UICorner")
+local Players = game:GetService("Players")
+
+Players.PlayerAdded:Connect(function(NewPlayer)
+	local Player = Instance.new("TextButton")
+	Player.Name = NewPlayer.Name
+	Player.Parent = Main
+	Player.BackgroundColor3 = Color3.fromRGB(124, 255, 101)
+	Player.BorderSizePixel = 0
+	Player.Size = UDim2.new(0, 174, 0, 29)
+	Player.Font = Enum.Font.SourceSans
+	Player.Text = NewPlayer.Name
+	Player.TextColor3 = Color3.fromRGB(0, 0, 0)
+	Player.TextScaled = true
+	Player.TextSize = 14.000
+	Player.TextWrapped = true
+  
+end)
+
+Players.PlayerRemoving:Connect(function(OldPlayer)
+	local OldPlayerName = OldPlayer.Name
+	Main[OldPlayerName]:Destroy()
+end)
+for i,v in pairs(Players:GetPlayers()) do
+	local Player = Instance.new("TextButton")
+	Player.Name = v.Name
+	Player.Parent = Main
+	Player.BackgroundColor3 = Color3.fromRGB(124, 255, 101)
+	Player.BorderSizePixel = 0
+	Player.Size = UDim2.new(0, 174, 0, 29)
+	Player.Font = Enum.Font.SourceSans
+	Player.Text = v.Name
+	Player.TextColor3 = Color3.fromRGB(0, 0, 0)
+	Player.TextScaled = true
+	Player.TextSize = 14.000
+	Player.TextWrapped = true
+    Player.MouseButton1Click:Connect(function()
+         local Strength = v.Stats.Strength.Value    
+         local Fruit = v.Stats.Fruit.Value
+         local Stamina = v.Stats.Stamina.Value
+         local Sword = v.Stats.Sword.Value
+         local Gun = v.Stats.Gun.Value
+         local Haki = v.Stats.Haki.Value
+         local Defence = v.Stats.Defence.Value
+         local Beli = v.Stats.Beli.Value
+         local DevilFruit = v.Stats["Devil Fruit"].Value
+         game.CoreGui.OnTop.PlayerStats.View.Str.Text = "Strength: "..Strength 
+         game.CoreGui.OnTop.PlayerStats.View.DF.Text = "Fruit: "..Fruit
+         game.CoreGui.OnTop.PlayerStats.View.Stam.Text = "Stamina: "..Stamina
+         game.CoreGui.OnTop.PlayerStats.View.Weapon.Text = "Sword: "..Sword
+         game.CoreGui.OnTop.PlayerStats.View.Defense.Text = "Defence: "..Defence
+         game.CoreGui.OnTop.PlayerStats.View.Glock.Text = "Gun: "..Gun
+         game.CoreGui.OnTop.PlayerStats.View.Buso.Text = "Haki: "..Haki 
+         game.CoreGui.OnTop.PlayerStats.View.Beri.Text = "Beli: "..Beli
+         game.CoreGui.OnTop.PlayerStats.View.EatenFruit.Text = "DevilFruit: "..DevilFruit
+    end)
+end
+--Properties:
+
+OnTop.Name = "OnTop"
+OnTop.Parent = game.CoreGui
+OnTop.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Users.Name = "Users"
+Users.Parent = OnTop
+Users.BackgroundColor3 = Color3.fromRGB(59, 225, 73)
+Users.BorderSizePixel = 0
+Users.Position = UDim2.new(0.0652503818, 0, 0.216560513, 0)
+Users.Size = UDim2.new(0, 174, 0, 29)
+Users.Font = Enum.Font.SourceSans
+Users.Text = "Players"
+Users.TextColor3 = Color3.fromRGB(0, 0, 0)
+Users.TextScaled = true
+Users.TextSize = 14.000
+Users.TextWrapped = true
+Users.Active = true
+Users.Draggable = true
+
+Main.Name = "Main"
+Main.Parent = Users
+Main.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+Main.Position = UDim2.new(-0.00371513516, 0, 1.27388537, 0)
+Main.Size = UDim2.new(0, 174, 0, 397)
+
+UICorner.Parent = Main
+
+UIListLayout.Parent = Main
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+
+PlayerStats.Name = "PlayerStats"
+PlayerStats.Parent = OnTop
+PlayerStats.BackgroundColor3 = Color3.fromRGB(59, 225, 73)
+PlayerStats.BorderSizePixel = 0
+PlayerStats.Position = UDim2.new(0.213960543, 0, 0.216560513, 0)
+PlayerStats.Size = UDim2.new(0, 174, 0, 29)
+PlayerStats.Font = Enum.Font.SourceSans
+PlayerStats.Text = "Stats"
+PlayerStats.TextColor3 = Color3.fromRGB(0, 0, 0)
+PlayerStats.TextScaled = true
+PlayerStats.TextSize = 14.000
+PlayerStats.TextWrapped = true
+PlayerStats.Active = true
+PlayerStats.Draggable = true
+
+
+
+View.Name = "View"
+View.Parent = PlayerStats
+View.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+View.Position = UDim2.new(-0.00443026423, 0, 1.27388537, 0)
+View.Size = UDim2.new(0, 174, 0, 397)
+
+UICorner_2.Parent = View
+
+UIListLayout_2.Parent = View
+UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+
+Str.Name = "Str"
+Str.Parent = View
+Str.BackgroundColor3 = Color3.fromRGB(124, 255, 101)
+Str.BorderSizePixel = 0
+Str.Size = UDim2.new(0, 174, 0, 29)
+Str.Font = Enum.Font.SourceSans
+Str.Text = "Strength: "
+Str.TextColor3 = Color3.fromRGB(0, 0, 0)
+Str.TextScaled = true
+Str.TextSize = 14.000
+Str.TextWrapped = true
+Str.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_3.Parent = Str
+
+Stam.Name = "Stam"
+Stam.Parent = View
+Stam.BackgroundColor3 = Color3.fromRGB(124, 255, 101)
+Stam.BorderSizePixel = 0
+Stam.Size = UDim2.new(0, 174, 0, 29)
+Stam.Font = Enum.Font.SourceSans
+Stam.Text = "Stamina: "
+Stam.TextColor3 = Color3.fromRGB(0, 0, 0)
+Stam.TextScaled = true
+Stam.TextSize = 14.000
+Stam.TextWrapped = true
+Stam.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_4.Parent = Stam
+
+Defense.Name = "Defense"
+Defense.Parent = View
+Defense.BackgroundColor3 = Color3.fromRGB(124, 255, 101)
+Defense.BorderSizePixel = 0
+Defense.Size = UDim2.new(0, 174, 0, 29)
+Defense.Font = Enum.Font.SourceSans
+Defense.Text = "Defense: "
+Defense.TextColor3 = Color3.fromRGB(0, 0, 0)
+Defense.TextScaled = true
+Defense.TextSize = 14.000
+Defense.TextWrapped = true
+Defense.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_5.Parent = Defense
+
+Weapon.Name = "Weapon"
+Weapon.Parent = View
+Weapon.BackgroundColor3 = Color3.fromRGB(124, 255, 101)
+Weapon.BorderSizePixel = 0
+Weapon.Size = UDim2.new(0, 174, 0, 29)
+Weapon.Font = Enum.Font.SourceSans
+Weapon.Text = "Sword: "
+Weapon.TextColor3 = Color3.fromRGB(0, 0, 0)
+Weapon.TextScaled = true
+Weapon.TextSize = 14.000
+Weapon.TextWrapped = true
+Weapon.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_6.Parent = Weapon
+
+Glock.Name = "Glock"
+Glock.Parent = View
+Glock.BackgroundColor3 = Color3.fromRGB(124, 255, 101)
+Glock.BorderSizePixel = 0
+Glock.Size = UDim2.new(0, 174, 0, 29)
+Glock.Font = Enum.Font.SourceSans
+Glock.Text = "Gun:"
+Glock.TextColor3 = Color3.fromRGB(0, 0, 0)
+Glock.TextScaled = true
+Glock.TextSize = 14.000
+Glock.TextWrapped = true
+Glock.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_7.Parent = Glock
+
+Buso.Name = "Buso"
+Buso.Parent = View
+Buso.BackgroundColor3 = Color3.fromRGB(124, 255, 101)
+Buso.BorderSizePixel = 0
+Buso.Size = UDim2.new(0, 174, 0, 29)
+Buso.Font = Enum.Font.SourceSans
+Buso.Text = "Haki: "
+Buso.TextColor3 = Color3.fromRGB(0, 0, 0)
+Buso.TextScaled = true
+Buso.TextSize = 14.000
+Buso.TextWrapped = true
+Buso.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_8.Parent = Buso
+
+DF.Name = "DF"
+DF.Parent = View
+DF.BackgroundColor3 = Color3.fromRGB(124, 255, 101)
+DF.BorderSizePixel = 0
+DF.Size = UDim2.new(0, 174, 0, 29)
+DF.Font = Enum.Font.SourceSans
+DF.Text = "Fruit: "
+DF.TextColor3 = Color3.fromRGB(0, 0, 0)
+DF.TextScaled = true
+DF.TextSize = 14.000
+DF.TextWrapped = true
+DF.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_9.Parent = DF
+
+EatenFruit.Name = "EatenFruit"
+EatenFruit.Parent = View
+EatenFruit.BackgroundColor3 = Color3.fromRGB(124, 255, 101)
+EatenFruit.BorderSizePixel = 0
+EatenFruit.Size = UDim2.new(0, 174, 0, 29)
+EatenFruit.Font = Enum.Font.SourceSans
+EatenFruit.Text = "Fruit2:"
+EatenFruit.TextColor3 = Color3.fromRGB(0, 0, 0)
+EatenFruit.TextScaled = true
+EatenFruit.TextSize = 14.000
+EatenFruit.TextWrapped = true
+EatenFruit.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_10.Parent = EatenFruit
+
+Beri.Name = "Beri"
+Beri.Parent = View
+Beri.BackgroundColor3 = Color3.fromRGB(124, 255, 101)
+Beri.BorderSizePixel = 0
+Beri.Size = UDim2.new(0, 174, 0, 29)
+Beri.Font = Enum.Font.SourceSans
+Beri.Text = "Beli:"
+Beri.TextColor3 = Color3.fromRGB(0, 0, 0)
+Beri.TextScaled = true
+Beri.TextSize = 14.000
+Beri.TextWrapped = true
+Beri.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_11.Parent = Beri
+
+
+-- Scripts:
+
+local function HKRREMN_fake_script() -- UICorner. 
+	local script = Instance.new('Script', UICorner)
+
+	end
