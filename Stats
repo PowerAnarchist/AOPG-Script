@@ -303,11 +303,11 @@ BusoColor.TextXAlignment = Enum.TextXAlignment.Left
 
 UICorner_12.Parent = BusoColor
 
-local userInputService = game:GetService("UserInputService")
+local UIS = game:GetService("UserInputService")
 
-userInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+UIS.InputBegan:Connect(function(Input, GameProcessedEvent)
 
-	if input.KeyCode == Enum.KeyCode.LeftAlt or Enum.KeyCode.RightAlt then
+	if Input == Enum.KeyCode.LeftAlt or RightAlt then
 		if game.CoreGui.OnTop.Enabled == true then 
 		   game.CoreGui.OnTop.Enabled = false
 		print("Gui is off press alt to turn it back on")
