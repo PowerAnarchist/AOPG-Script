@@ -31,6 +31,8 @@ local EatenFruit = Instance.new("TextLabel")
 local UICorner_10 = Instance.new("UICorner")
 local Beri = Instance.new("TextLabel")
 local UICorner_11 = Instance.new("UICorner")
+local BusoColor = Instance.new("TextLabel")
+local UICorner_12 = Instance.new("UICorner")
 local Players = game:GetService("Players")
 
 Players.PlayerAdded:Connect(function(NewPlayer)
@@ -76,6 +78,7 @@ for i,v in pairs(Players:GetPlayers()) do
          local Defence = v.Stats.Defence.Value
          local Beli = v.Stats.Beli.Value
          local DevilFruit = v.Stats["Devil Fruit"].Value
+		 local HakiColor = v.Stats.HakiColor.Value
          game.CoreGui.OnTop.PlayerStats.View.Str.Text = "Strength: "..Strength 
          game.CoreGui.OnTop.PlayerStats.View.DF.Text = "Fruit: "..Fruit
          game.CoreGui.OnTop.PlayerStats.View.Stam.Text = "Stamina: "..Stamina
@@ -85,6 +88,7 @@ for i,v in pairs(Players:GetPlayers()) do
          game.CoreGui.OnTop.PlayerStats.View.Buso.Text = "Haki: "..Haki 
          game.CoreGui.OnTop.PlayerStats.View.Beri.Text = "Beli: "..Beli
          game.CoreGui.OnTop.PlayerStats.View.EatenFruit.Text = "DevilFruit: "..DevilFruit
+		 game.CoreGui.OnTop.PlayerStats.View.BusoColor.Text = "Haki Color:"..HakiColor
     end)
 end
 --Properties:
@@ -238,6 +242,7 @@ Buso.TextXAlignment = Enum.TextXAlignment.Left
 
 UICorner_8.Parent = Buso
 
+
 DF.Name = "DF"
 DF.Parent = View
 DF.BackgroundColor3 = Color3.fromRGB(124, 255, 101)
@@ -283,7 +288,20 @@ Beri.TextXAlignment = Enum.TextXAlignment.Left
 
 UICorner_11.Parent = Beri
 
+BusoColor.Name = "BusoColor"
+BusoColor.Parent = View
+BusoColor.BackgroundColor3 = Color3.fromRGB(124, 255, 101)
+BusoColor.BorderSizePixel = 0
+BusoColor.Size = UDim2.new(0, 174, 0, 29)
+BusoColor.Font = Enum.Font.SourceSans
+BusoColor.Text = "HakiColor:"
+BusoColor.TextColor3 = Color3.fromRGB(0, 0, 0)
+BusoColor.TextScaled = true
+BusoColor.TextSize = 14.000
+BusoColor.TextWrapped = true
+BusoColor.TextXAlignment = Enum.TextXAlignment.Left
 
+UICorner_12.Parent = BusoColor
 -- Scripts:
 
 local function HKRREMN_fake_script() -- UICorner. 
