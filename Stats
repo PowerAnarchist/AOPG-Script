@@ -307,19 +307,16 @@ local userInputService = game:GetService("UserInputService")
 
 userInputService.InputBegan:Connect(function(input, gameProcessedEvent)
 
-		if input.KeyCode == Enum.KeyCode.LeftAlt or Enum.KeyCode.RightAlt then
-			if game.CoreGui.OnTop.Enabled == true then 
-			   game.CoreGui.OnTop.Enabled = false
-				print("Gui is off press alt to turn it back on")
-			elseif game.CoreGui.OnTop.Enabled == false then 
-				   game.CoreGui.OnTop.Enabled = true
-				print("Gui is on press alt to turn it back off")
-				end
-
-		end
-	end
+        if input.KeyCode == Enum.KeyCode.LeftAlt or input.KeyCode == Enum.KeyCode.RightAlt then
+            if game.CoreGui.OnTop.Enabled == true then 
+               game.CoreGui.OnTop.Enabled = false
+                print("Gui is off press alt to turn it back on")
+            elseif game.CoreGui.OnTop.Enabled == false then 
+                   game.CoreGui.OnTop.Enabled = true
+                print("Gui is on press alt to turn it back off")
+        end
+    end
 end)
-
 local function HKRREMN_fake_script() -- UICorner. 
 	local script = Instance.new('Script', UICorner)
 
