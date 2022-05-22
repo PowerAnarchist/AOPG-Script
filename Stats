@@ -307,17 +307,14 @@ local userInputService = game:GetService("UserInputService")
 
 userInputService.InputBegan:Connect(function(input, gameProcessedEvent)
 
-	if input.UserInputType == Enum.UserInputType.Keyboard then
-
-		if input.KeyCode == Enum.KeyCode.LeftAlt or Enum.KeyCode.RightAlt then
-			if game.CoreGui.OnTop.Enabled == true then 
-			   game.CoreGui.OnTop.Enabled = false
-				print("Gui is off press alt to turn it back on")
-			elseif game.CoreGui.OnTop.Enabled == false then 
-				   game.CoreGui.OnTop.Enabled = true
-				print("Gui is on press alt to turn it back off")
-				end
-
+	if input.KeyCode == Enum.KeyCode.LeftAlt or Enum.KeyCode.RightAlt then
+		if game.CoreGui.OnTop.Enabled == true then 
+		   game.CoreGui.OnTop.Enabled = false
+		print("Gui is off press alt to turn it back on")
+		elseif game.CoreGui.OnTop.Enabled == false then 
+		  game.CoreGui.OnTop.Enabled = true
+		print("Gui is on press alt to turn it back off")
+		
 		end
 	end
 end)
